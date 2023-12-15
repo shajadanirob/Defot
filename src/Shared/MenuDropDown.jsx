@@ -1,11 +1,13 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import {AiOutlineMenu} from "react-icons/ai"
+import useAuth from "../Hooks/UseAuth";
+import avatarImg from '../../public/depositphotos_137014128-stock-illustration-user-profile-icon.jpg'
 
 
 const MenuDropDown = () => {
     const [isOpen, setIsOpen] = useState(false)
-    // const { user } = useAuth()
+    const { user } = useAuth()
 
     return (
         <div className='relative'>
@@ -13,7 +15,7 @@ const MenuDropDown = () => {
           {/* Become A Host btn */}
           <div className='hidden md:block'>
             <button className='disabled:cursor-not-allowed cursor-pointer hover:bg-neutral-100 py-3 px-4 text-sm font-semibold rounded-full  transition'>
-              Host your home
+              {user? user.displayName :''}
             </button>
           </div>
           {/* Dropdown btn */}
@@ -27,8 +29,8 @@ const MenuDropDown = () => {
               <img
                 className='rounded-full'
                 referrerPolicy='no-referrer'
-                // src={user && user.photoURL ? user.photoURL : avatarImg}
-                src="https://i.ibb.co/SKVCdhh/depositphotos-137014128-stock-illustration-user-profile-icon.webp"
+                src={user && user.photoURL ? user.photoURL : avatarImg}
+                
                 alt='profile'
                 height='30'
                 width='30'

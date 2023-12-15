@@ -1,78 +1,47 @@
 import { Link } from "react-router-dom";
+import useAuth from "../../Hooks/UseAuth";
 
 const Login = () => {
+    const {signIn,signInWithGoogle,loading,} = useAuth()
+
     return (
         <div>
-          <div id="login-popup" tabindex="-1"
-    className="bg-black/50 overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 h-full items-center justify-center flex">
-    <div className="relative p-4 w-full max-w-md h-full md:h-auto">
-
-        <div className="relative bg-white rounded-lg shadow">
-            <button type="button"
-                className="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center popup-close"><svg
-                    aria-hidden="true" className="w-5 h-5" fill="#c6c7c7" viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd"
-                        d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                        cliprule="evenodd"></path>
-                </svg>
-                <span className="sr-only">Close popup</span>
-            </button>
-
-            <div className="p-5">
-                <h3 className="text-2xl mb-0.5 font-medium"></h3>
-                <p className="mb-4 text-sm font-normal text-gray-800"></p>
-
-                <div className="text-center">
-                    <p className="mb-3 text-2xl font-semibold leading-5 text-slate-900">
-                        Login to your account
-                    </p>
-                    <p className="mt-2 text-sm leading-4 text-slate-600">
-                        You must be logged in to perform this action.
-                    </p>
+<div
+    className="relative my-24 mx-auto w-full max-w-md bg-white px-6 pt-10 pb-8 shadow-xl ring-1 ring-gray-900/5 sm:rounded-xl sm:px-10">
+    <div className="w-full">
+        <div className="text-center">
+            <h1 className="text-3xl font-semibold text-gray-900">Sign in</h1>
+            <p className="mt-2 text-gray-500">Sign in below to access your account</p>
+        </div>
+        <div className="mt-5">
+            <form action="">
+                <div className="relative mt-6">
+                    
+                    <input type="email" name="email" id="email" placeholder="Email Address" className="peer mt-1 w-full border-b-2 border-gray-300 px-0 py-1 placeholder:text-transparent focus:border-gray-500 focus:outline-none" autocomplete="NA" />
+                    <label for="email" className="pointer-events-none absolute top-0 left-0 origin-left -translate-y-1/2 transform text-sm text-gray-800 opacity-75 transition-all duration-100 ease-in-out peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-500 peer-focus:top-0 peer-focus:pl-0 peer-focus:text-sm peer-focus:text-gray-800">Email Address</label>
                 </div>
-
-                <div className="mt-7 flex flex-col gap-2">
-
-                    <button
-                        className="inline-flex h-10 w-full items-center justify-center gap-2 rounded border border-slate-300 bg-white p-2 text-sm font-medium text-black outline-none focus:ring-2 focus:ring-[#333] focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-60"><img
+                <div className="relative mt-6">
+                    <input type="password" name="password" id="password" placeholder="Password" className="peer peer mt-1 w-full border-b-2 border-gray-300 px-0 py-1 placeholder:text-transparent focus:border-gray-500 focus:outline-none" />
+                    <label for="password" className="pointer-events-none absolute top-0 left-0 origin-left -translate-y-1/2 transform text-sm text-gray-800 opacity-75 transition-all duration-100 ease-in-out peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-500 peer-focus:top-0 peer-focus:pl-0 peer-focus:text-sm peer-focus:text-gray-800">Password</label>
+                </div>
+                <button
+                        className="inline-flex my-5 h-10 w-full items-center justify-center gap-2 rounded border border-slate-300 bg-white p-2 text-sm font-medium text-black outline-none focus:ring-2 focus:ring-[#333] focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-60"><img
                             src="https://www.svgrepo.com/show/475656/google-color.svg" alt="Google"
                             className="h-[18px] w-[18px] "/>Continue with
                         Google
                     </button>
-
+                
+                <div className="my-6">
+                    <button type="submit" className="w-full rounded-md bg-black px-3 py-4 text-white focus:bg-gray-600 focus:outline-none">Sign in</button>
                 </div>
-
-                <div className="flex w-full items-center gap-2 py-6 text-sm text-slate-600">
-                    <div className="h-px w-full bg-slate-200"></div>
-                    OR
-                    <div className="h-px w-full bg-slate-200"></div>
-                </div>
-
-
-                <form className="w-full">
-                    <label for="email" className="sr-only">Email address</label>
-                    <input name="email" type="email" autocomplete="email" required=""
-                        className="block w-full rounded-lg border border-gray-300 px-3 py-2 shadow-sm outline-none placeholder:text-gray-400 focus:ring-2 focus:ring-black focus:ring-offset-1"
-                        placeholder="Email Address" value=""/>
-                    <label for="password" className="sr-only">Password</label>
-                    <input name="password" type="password" autocomplete="current-password" required=""
-                        className="mt-2 block w-full rounded-lg border border-gray-300 px-3 py-2 shadow-sm outline-none placeholder:text-gray-400 focus:ring-2 focus:ring-black focus:ring-offset-1"
-                        placeholder="Password" value=""/>
-                    <p className="mb-3 mt-2 text-sm text-gray-500">
-                        <a href="/forgot-password" className="text-blue-800 hover:text-blue-600">Reset your password?</a>
-                    </p>
-                    <button type="submit"
-                        className="inline-flex w-full items-center justify-center rounded-lg bg-black p-2 py-3 text-sm font-medium text-white outline-none focus:ring-2 focus:ring-black focus:ring-offset-1 disabled:bg-gray-400">
-                        Continue
-                    </button>
-                </form>
-
-                <div className="mt-6 text-center text-sm text-slate-600">
-                    Don't have an account?
-                    <Link to='/signUp' className="font-medium text-[#4285f4]">Sign up</Link>
-                </div>
-            </div>
+                <p className="text-center text-sm text-gray-500">Don&#x27;t have an account yet?
+                    <Link to='/signUp'
+                        className="font-semibold text-gray-600 hover:underline focus:text-gray-800 focus:outline-none">Sign
+                        up
+                    </Link>.
+                </p>
+                
+            </form>
         </div>
     </div>
 </div>
