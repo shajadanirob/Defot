@@ -4,6 +4,9 @@ import Home from "../Pages/Home/Home";
 import Shope from "../Pages/Shpoe/Shope";
 import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
+import DashBoard from "../Pages/DashBoard/DashBoard";
+import AddProducts from "../Pages/DashBoard/AdminDashBoard/AddProducts";
+
 
 const Router = createBrowserRouter([
     {
@@ -28,7 +31,19 @@ const Router = createBrowserRouter([
     {
       path:'/signUp',
       element: <Register/>
+    },
+    // dashBoard
+    {
+      path:'/dashBoard',
+      element:<DashBoard/>,
+      children:[
+        {
+          path:'/dashBoard/addProducts',
+          element: <AddProducts/>
+        }
+      ]
     }
+
   ]);
 
 export default Router  
