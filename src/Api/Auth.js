@@ -1,15 +1,11 @@
 
-
 // save user data in the database
 export const savedUser = async AllData =>{
     const currentUser = {
         email : AllData.email,
-        role : 'donor',
+        role : 'admin',
         status:'active',
         name: AllData.name,
-        bloodGroup: AllData.bloodGroup,
-        district: AllData.district,
-        upeZila: AllData.upajila,
         image : AllData.imageData.data.display_url
         
         
@@ -20,9 +16,9 @@ export const savedUser = async AllData =>{
 
 
 
-
-
 // get token from database
+
+import axiosSecure from "."
 
 export const getToken = async email =>{
     const {data} = await axiosSecure.post(`/jwt`,email)

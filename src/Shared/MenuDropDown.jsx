@@ -7,7 +7,8 @@ import avatarImg from '../../public/depositphotos_137014128-stock-illustration-u
 
 const MenuDropDown = () => {
     const [isOpen, setIsOpen] = useState(false)
-    const { user } = useAuth()
+    const { user,logOut } = useAuth()
+
 
     return (
         <div className='relative'>
@@ -43,16 +44,21 @@ const MenuDropDown = () => {
             <div className='flex flex-col cursor-pointer'>
               <Link
                 to='/'
-                className='block md:hidden px-4 py-3 hover:bg-neutral-100 transition font-semibold'
+                className=' px-4 py-3 hover:bg-neutral-100 transition font-semibold'
               >
                 Profile
               </Link>
   
               <Link
-                to='/login'
+              onClick={logOut}
                 className='px-4 py-3 hover:bg-neutral-100 transition font-semibold'
               >
                 Logout
+              </Link>
+              <Link
+                className='px-4 py-3 hover:bg-neutral-100 transition font-semibold'
+              >
+                DashBoard
               </Link>
             </div>
           </div>

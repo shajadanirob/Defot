@@ -1,9 +1,14 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { imageUpload } from "../../Api/Utiliti";
+
+import toast from "react-hot-toast";
 import useAuth from "../../Hooks/UseAuth";
+import axiosSecure from "../../Api";
+
 
 const Register = () => {
-    const { createUser,  updateUserProfile} = useAuth()
+    const { createUser,  updateUserProfile,signInWithGoogle} = useAuth()
+    const navigate = useNavigate()
 
     const handleRegister = async (event) => {
         event.preventDefault();
@@ -13,24 +18,30 @@ const Register = () => {
         const email = form.email.value;
         const password = form.password.value;
 
+
         try {
             // 1. upload image
             const imageData = await imageUpload(image);
             const allData = {
                 name,
-                image,
                 email,
-                password
+                password,
+          
             };
             console.log(allData)
+            console.log(image)
              // 2. user registration
            const result= await  createUser(email, password);
+        
 
              // 3. save user and profile photo
              await updateUserProfile(
                  name,
                  imageData?.data?.display_url,
              );
+             axiosSecure.post('/users',allData)
+             toast.success('Register SucessFully')
+             navigate('/')
         }
         catch(err) {
             console.error(err);
@@ -39,6 +50,22 @@ const Register = () => {
 
         }
     }
+
+      // handleGoogle sign in
+      const handleGoogleSignIn = async () => {
+        try {
+            // 1. user registration with google
+            const result = await signInWithGoogle();
+
+    
+
+            toast.success('Sign up successfully');
+            navigate('/');
+        } catch (err) {
+            console.error(err);
+            toast.error(err.message);
+        }
+    };
     return (
         <div>
             <div
@@ -74,6 +101,7 @@ const Register = () => {
                                 <label for="password" className="pointer-events-none absolute top-0 left-0 origin-left -translate-y-1/2 transform text-sm text-gray-800 opacity-75 transition-all duration-100 ease-in-out peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-500 peer-focus:top-0 peer-focus:pl-0 peer-focus:text-sm peer-focus:text-gray-800">Password</label>
                             </div>
                             <button
+                            onClick={handleGoogleSignIn}
                                 className="inline-flex my-5 h-10 w-full items-center justify-center gap-2 rounded border border-slate-300 bg-white p-2 text-sm font-medium text-black outline-none focus:ring-2 focus:ring-[#333] focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-60"><img
                                     src="https://www.svgrepo.com/show/475656/google-color.svg" alt="Google"
                                     className="h-[18px] w-[18px] " />Continue with

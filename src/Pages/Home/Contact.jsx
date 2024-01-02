@@ -1,3 +1,5 @@
+import Lottie from "lottie-react";
+import loginGif from '../../../public/login.json';
 
 
 const Contact = () => {
@@ -39,7 +41,110 @@ const Contact = () => {
     </button>
 </label>  
 
+{/* <div className="grid grid-cols-1 lg:grid-cols-3  gap-5">
 
+<div class="group relative block h-64 sm:h-80 lg:h-96">
+  <span class="absolute inset-0 border-2 border-dashed border-black"></span>
+
+  <div
+    class="relative flex h-full transform items-end border-2 border-black bg-white transition-transform group-hover:-translate-x-0 group-hover:-translate-y-0"
+  >
+    <div
+      class="p-4 !pt-0 transition-opacity group-hover:absolute group-hover:opacity-0 sm:p-6 lg:p-8"
+    >
+
+
+      <img src="https://i.ibb.co/kmGYJ5V/images-5.jpg" alt="" />
+    </div>
+
+    <div
+      class="absolute p-4 opacity-0 transition-opacity group-hover:relative group-hover:opacity-100 sm:p-6 lg:p-8"
+    >
+         <Lottie className="w-full" animationData={loginGif}></Lottie>
+      <h3 class="mt-4 text-xl font-medium sm:text-2xl">Go around the world</h3>
+
+      <p class="mt-4 text-sm sm:text-base">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate, praesentium voluptatem
+        omnis atque culpa repellendus.
+      </p>
+
+      <p class="mt-8 font-bold">Read more</p>
+    </div>
+  </div>
+</div>
+
+<div class="group relative block h-64 sm:h-80 lg:h-96">
+  <span class="absolute inset-0 border-2 border-dashed border-black"></span>
+
+  <div
+    class="relative flex h-full transform items-end border-2 border-black bg-white transition-transform group-hover:-translate-x-0 group-hover:-translate-y-0"
+  >
+    <div
+      class="p-4 !pt-0 transition-opacity group-hover:absolute group-hover:opacity-0 sm:p-6 lg:p-8"
+    >
+
+
+      <img src="https://i.ibb.co/WkmZqYJ/t-md-b-Supoan1k-G.webp" alt="" />
+      <h3 class="mt-4 text-xl font-medium sm:text-2xl">Go around the world</h3>
+      <p class="mt-4 text-sm sm:text-base">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate, praesentium voluptatem
+        omnis atque culpa repellendus.
+      </p>
+    </div>
+
+    <div
+      class="absolute p-4 opacity-0 transition-opacity duration-700 group-hover:relative group-hover:opacity-100 sm:p-6 lg:p-8 "
+    >
+        <div className="flex items-center justify-center">
+            
+         <Lottie className="w-1/2" animationData={loginGif}></Lottie>
+        </div>
+      <h3 class="mt-4 text-xl font-medium sm:text-2xl">Go around the world</h3>
+
+      <p class="mt-4 text-sm sm:text-base">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate, praesentium voluptatem
+        omnis atque culpa repellendus.
+      </p>
+
+      <p class="mt-8 font-bold">Read more</p>
+    </div>
+  </div>
+</div>
+
+
+
+
+<div class="group relative block h-64 sm:h-80 lg:h-96">
+  <span class="absolute inset-0 border-2 border-dashed border-black"></span>
+
+  <div
+    class="relative flex h-full transform items-end border-2 border-black bg-white transition-transform group-hover:-translate-x-0 group-hover:-translate-y-0"
+  >
+    <div
+      class="p-4 !pt-0 transition-opacity group-hover:absolute group-hover:opacity-0 sm:p-6 lg:p-8"
+    >
+
+
+      <img src="https://i.ibb.co/kmGYJ5V/images-5.jpg" alt="" />
+    </div>
+
+    <div
+      class="absolute p-4 opacity-0 transition-opacity group-hover:relative group-hover:opacity-100 sm:p-6 lg:p-8"
+    >
+         <Lottie className="w-[60%] lg:w-[30%]" animationData={loginGif}></Lottie>
+      <h3 class="mt-4 text-xl font-medium sm:text-2xl">Go around the world</h3>
+
+      <p class="mt-4 text-sm sm:text-base">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate, praesentium voluptatem
+        omnis atque culpa repellendus.
+      </p>
+
+      <p class="mt-8 font-bold">Read more</p>
+    </div>
+  </div>
+</div>
+
+</div> */}
    
         </div>
     );

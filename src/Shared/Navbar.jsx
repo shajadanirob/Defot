@@ -1,8 +1,10 @@
 import { Link } from "react-router-dom";
 import MenuDropDown from "./MenuDropDown";
+import useAuth from "../Hooks/UseAuth";
 
 
 const Navbar = () => {
+  const {user} = useAuth()
   const NavItems = <>
       <li><Link to='/'>Home</Link></li>
       <li><Link to='/shope'>Shope</Link></li>
@@ -43,7 +45,11 @@ const Navbar = () => {
   </div>
 
   <div className="navbar-end">
-  <MenuDropDown/>
+ {
+  user?  <MenuDropDown/> : <>
+  <Link to='/login'><button className="btn btn-sm bg-black text-white">Login</button></Link>
+  </>
+ }
     
   </div>
 </div>

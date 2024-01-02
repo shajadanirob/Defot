@@ -1,0 +1,26 @@
+@keyframes gradient-x {
+    0%, 100% {
+      background-position: 100% 0;
+    }
+    50% {
+      background-position: 0 0;
+    }
+  }
+  
+  @keyframes gradient-y {
+    0%, 100% {
+      background-position: 0 100%;
+    }
+    50% {
+      background-position: 0 0;
+    }
+  }
+  
+  .animate-gradient-x {
+    animation: gradient-x 10s infinite linear;
+  }
+  
+  .animate-gradient-y {
+    animation: gradient-y 5s infinite linear;
+  }
+  

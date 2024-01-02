@@ -12,8 +12,8 @@ import {
   updateProfile,
 } from 'firebase/auth'
 
-import { ClearCookie } from '../Api/Auth'
 import { app } from '../Firebase/Firebase.config'
+import { ClearCookie } from '../Api/Auth'
 
 export const AuthContext = createContext(null)
 const auth = getAuth(app)
